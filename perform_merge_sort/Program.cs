@@ -32,7 +32,18 @@ namespace perform_merge_sort
                 numbers[right] = temp[right];
                 right--;
             }
+        }
 
+        static public void SortMethod(int[] numbers, int left, int right)
+        {
+            int mid;
+            if (right > left)
+            {
+                mid = (right + left) / 2;
+                SortMethod(numbers, left, mid);
+                SortMethod(numbers, (mid + 1), right);
+                MergeMethod(numbers, left, (mid + 1), right);
+            }
         }
     }
 }
